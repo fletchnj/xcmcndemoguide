@@ -15,6 +15,7 @@ crash.*.log
 # to change depending on the environment.
 *.tfvars
 *.tfvars.json
+tfcloud.tf
 
 # Ignore override files as they are usually used to override resources locally and so
 # are not checked in
@@ -36,3 +37,9 @@ terraform.rc
 .terraform.lock.hcl
 
 *.p12
+
+# Mac OS files
+*DS_Store
+
+# Output json files for F5 Automation toolchain
+vm*_data.json
