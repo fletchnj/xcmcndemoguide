@@ -5,11 +5,11 @@ variable "environment" {
 
 variable "api_url" {
   type    = string
-  default = "https://console.ves.volterra.io/api"
+  default = ""
 }
 
 variable "api_p12_file" {
-  default = "./api-cert.p12"
+  default = ""
 }
 
 variable "aws_access_key" {
@@ -36,7 +36,7 @@ variable "aws_xc_instance_type" {
 variable "zone_name" {
   type        = string
   default     = "liable-bronze-snake.github.securelab.online"
-  description = "Zone name"
+  description = "rational-peach-gerbil.github.securelab.online"
 }
 
 variable "aws_vpc_cidr" {
@@ -80,3 +80,11 @@ variable "demo_vm_ip" {
   default     = "10.0.20.100"
   description = "Ip Address for demo-vm"
 }
+
+variable "resource_owner" {
+  type = string
+  default = "example@f5.com"
+  description = "tag all resources"
+}
+
+

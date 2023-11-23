@@ -1,0 +1,11 @@
+# Azure Environment
+environment                         = "xxxxxxx"
+azure_subscription_id               = "xxxxxxx"
+azure_subscription_tenant_id        = "xxxxxxx"
+azure_service_principal_appid       = "xxxxxxx"
+azure_service_principal_password    = "xxxxxxx"
+azure_rg_location                   = "centralus"
+resourceOwner                       = "You"
+
+api_url                             = ""
+api_p12_file                        = ""

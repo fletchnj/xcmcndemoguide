@@ -1,0 +1,11 @@
+# AWS Environment Setup
+environment             = "yourname-cloud-a"
+resource_owner          = "example@f5.com"
+aws_region              = "us-east-2"
+aws_availability_zones  = ["us-east-2a"]
+
+api_url        = "xxxxxxxxxxxxxx"
+api_p12_file   =  "xxxxxxxxxxxxx"
+aws_access_key = "xxxxxxxxxxxxxx"
+aws_secret_key = "xxxxxxxxxxxxxx"
+#zone_name      = "xxxxxxxxxxxxx"

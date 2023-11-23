@@ -18,11 +18,11 @@ variable "api_ca_cert" {
 
 variable "api_url" {
   type    = string
-  default = "https://console.ves.volterra.io/api"
+  default = ""
 }
 
 variable "api_p12_file" {
-  default = "./api-cert.p12"
+  default = ""
 }
 
 variable "azure_public_subnets_cidr" {
@@ -76,4 +76,10 @@ variable "demo_vm_ip" {
   type        = string
   default     = "10.0.20.100"
   description = "Ip Address for demo-vm"
+}
+
+variable "resourceOwner" {
+  type = string
+  default = ""
+  description = "This is a tag used for object creation. Example is last name."
 }
