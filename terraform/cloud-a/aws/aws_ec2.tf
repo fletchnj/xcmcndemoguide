@@ -1,9 +1,9 @@
 resource "random_string" "random_suffix" {
-  length  = 4
-  special = false
-  upper   = false
-  numeric  = true
-  min_lower = 1
+  length      = 4
+  special     = false
+  upper       = false
+  numeric     = true
+  min_lower   = 1
   min_numeric = 1
 }
 
@@ -28,8 +28,8 @@ data "aws_ami" "ubuntu" {
 }
 
 resource "aws_network_interface" "private_nic" {
-  subnet_id   = element(aws_subnet.private_subnet.*.id, 0)
-  private_ips = [var.demo_vm_ip]
+  subnet_id       = element(aws_subnet.private_subnet.*.id, 0)
+  private_ips     = [var.demo_vm_ip]
   security_groups = [aws_security_group.allow_http.id, aws_security_group.default.id]
 
   tags = {

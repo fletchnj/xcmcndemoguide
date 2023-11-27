@@ -1,11 +1,11 @@
 # AWS Environment Setup
-environment             = "yourname-cloud-a"
+environment             = "cloud-a"
 resource_owner          = "example@f5.com"
 aws_region              = "us-east-2"
 aws_availability_zones  = ["us-east-2a"]
 
-api_url        = "xxxxxxxxxxxxxx"
-api_p12_file   =  "xxxxxxxxxxxxx"
-aws_access_key = AWS_ACCESS_KEY_ID (Moved to Terraform Cloud)
-aws_secret_key = AWS_SECRET_ACCESS_KEY (Moved to Terraform Cloud)
-#zone_name      = "xxxxxxxxxxxxx"
+api_url          = xxxxxxxxxxxxxx
+api_p12_file     = xxxxxxxxxxxxx
+aws_access_key   = AWS_ACCESS_KEY_ID (Moved to Terraform Cloud variable)
+aws_secret_key   = AWS_SECRET_ACCESS_KEY (Moved to Terraform Cloud variable)
+zone_name        = xxxxxxxxxxxxx

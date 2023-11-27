@@ -82,8 +82,8 @@ variable "demo_vm_ip" {
 }
 
 variable "resource_owner" {
-  type = string
-  default = "example@f5.com"
+  type        = string
+  default     = "example@f5.com"
   description = "tag all resources"
 }
 

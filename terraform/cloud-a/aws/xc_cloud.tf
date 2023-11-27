@@ -3,7 +3,7 @@ resource "tls_private_key" "key" {
 }
 
 resource "volterra_cloud_credentials" "aws_cred2" {
-  name = local.environment
+  name      = local.environment
   namespace = "system"
   aws_secret_key {
     access_key = var.aws_access_key
@@ -57,11 +57,11 @@ resource "volterra_aws_vpc_site" "aws_vpc_site" {
     ignore_changes = [labels]
   }
 
-  ssh_key                  = tls_private_key.key.public_key_openssh
-  direct_connect_disabled  = true
-  egress_gateway_default   = true
-  disable_internet_vip     = true
-  logs_streaming_disabled  = true
+  ssh_key                 = tls_private_key.key.public_key_openssh
+  direct_connect_disabled = true
+  egress_gateway_default  = true
+  disable_internet_vip    = true
+  logs_streaming_disabled = true
 }
 
 resource "volterra_cloud_site_labels" "labels" {
@@ -78,8 +78,8 @@ resource "volterra_tf_params_action" "action_apply" {
   wait_for_action = true
 
   depends_on = [
-      volterra_aws_vpc_site.aws_vpc_site
-    ]
+    volterra_aws_vpc_site.aws_vpc_site
+  ]
 }
 
 data "aws_instance" "xc_node" {
@@ -88,8 +88,8 @@ data "aws_instance" "xc_node" {
   }
 
   filter {
-  name   = "subnet-id"
-  values = [element(aws_subnet.private_subnet.*.id, 0), element(aws_subnet.public_subnet.*.id, 0), element(aws_subnet.workload_subnet.*.id, 0)]
+    name   = "subnet-id"
+    values = [element(aws_subnet.private_subnet.*.id, 0), element(aws_subnet.public_subnet.*.id, 0), element(aws_subnet.workload_subnet.*.id, 0)]
   }
 
   depends_on = [
@@ -99,13 +99,13 @@ data "aws_instance" "xc_node" {
 
 data "aws_network_interface" "xc_private_nic" {
   filter {
-  name   = "attachment.instance-id"
-  values = [data.aws_instance.xc_node.id]
+    name   = "attachment.instance-id"
+    values = [data.aws_instance.xc_node.id]
   }
 
   filter {
-  name   = "subnet-id"
-  values = [element(aws_subnet.private_subnet.*.id, 0)]
+    name   = "subnet-id"
+    values = [element(aws_subnet.private_subnet.*.id, 0)]
   }
 
   depends_on = [
@@ -121,9 +121,9 @@ data "aws_route_table" "private_route_table" {
 }
 
 resource "aws_route" "remote_network" {
-  route_table_id          = data.aws_route_table.private_route_table.id
-  destination_cidr_block  = var.xc_remote_cidr
-  network_interface_id    = data.aws_network_interface.xc_private_nic.id
+  route_table_id         = data.aws_route_table.private_route_table.id
+  destination_cidr_block = var.xc_remote_cidr
+  network_interface_id   = data.aws_network_interface.xc_private_nic.id
 }
 
 resource "aws_route" "private_internet_gateway" {
@@ -135,7 +135,7 @@ resource "aws_route" "private_internet_gateway" {
 resource "aws_route" "private_xc_gateway" {
   route_table_id         = data.aws_route_table.private_route_table.id
   destination_cidr_block = element(var.aws_public_subnets_cidr, 0)
-  network_interface_id              = data.aws_network_interface.xc_private_nic.id
+  network_interface_id   = data.aws_network_interface.xc_private_nic.id
 }
 
 output "xc_node_private_ip" {
